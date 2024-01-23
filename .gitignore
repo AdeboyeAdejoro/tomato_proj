@@ -18,4 +18,4 @@
 *.fastq
 *.fastqc
 *.bed
-
+.~lock.selected_files.csv#
