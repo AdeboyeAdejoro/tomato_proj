@@ -27,3 +27,12 @@ This simple file moves all the counts.txt files obtained from running featureCou
 
 ### counts_matrix_creator.py
 For each folder (`Lyc/counts_folder` and `Pen/counts_folder` ), the script iterates over each counts file and reads it into a dataframe. It takes only the first and last columns, containing the genes and their counts respectively, and transposes them. Then it concatenates each successive dataframe with the preceeding one, creating a count matrix that contains the gene names as columns and the counts of each counts file as rows.
+
+### filter_script.py
+This script was an attempt to find which SRR file contains reads that mapped to lycopersicum only. It didn't work. This file can be skipped
+
+### compare_filtered_files.py
+This script accomplishes what the filter_script.py was meant to. It finds the identity of files that have no reads that mapped to pennelli at all. 
+
+### get_lycopersicum_only.py
+This script builds on the previous one. It processes the output of the compare_filtered_files.py and finds the files that have no pennelli reads at all.
