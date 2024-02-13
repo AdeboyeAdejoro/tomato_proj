@@ -36,3 +36,12 @@ This script accomplishes what the filter_script.py was meant to. It finds the id
 
 ### get_lycopersicum_only.py
 This script builds on the previous one. It processes the output of the compare_filtered_files.py and finds the files that have no pennelli reads at all.
+
+### bam_mover.py
+This script copies all already made bamfiles to a new folder
+
+### index_creator.py
+This script then generates index files for each of the bamfiles in their new location
+
+### bam_filterer.py
+This script makes use of the output files obtained from the `bed_file_analyzer.py` script to filterer the bamfiles so that only reads that mapped uniquely to lycopersicum are left in the file.
