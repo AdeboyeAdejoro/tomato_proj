@@ -51,3 +51,18 @@ This script uses featureCounts to generate the counts for the filtered bam files
 
 ### filtered_counts_creator.py
 This script generates a csv file counts matrix, containing the gene names as columns and each counts file as a row. 
+
+### bam_mover_pen.py
+This script copies all already made bamfiles to a new folder, but this time it's taking the bamfiles that were produced from mapping the raw fastq samples to the pennelli genome
+
+### index_creator_pen.py
+This script then generates index files for each of the pennelli bamfiles in their new location
+
+### bam_filterer_pen.py
+This script makes use of the output files obtained from the `bed_file_analyzer.py` script to filterer the bamfiles so that only reads that mapped uniquely to pennelli are left in the file.
+
+### filtered_bam_counter_pen.py
+This script uses featureCounts to generate the counts for the filtered pennelli bam files (the bamfiles that contain only reads that mapped uniquely to pennelli)
+
+### filtered_counts_creator_pen.py
+This script generates a csv file counts matrix, containing the gene names as columns and each counts file as a row. 
