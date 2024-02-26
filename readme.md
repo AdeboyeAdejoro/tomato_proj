@@ -45,3 +45,9 @@ This script then generates index files for each of the bamfiles in their new loc
 
 ### bam_filterer.py
 This script makes use of the output files obtained from the `bed_file_analyzer.py` script to filterer the bamfiles so that only reads that mapped uniquely to lycopersicum are left in the file.
+
+### filtered_bam_counter.py
+This script uses featureCounts to generate the counts for the filtered bam files (the bamfiles that contain only reads that mapped uniquely to lycopersicum)
+
+### filtered_counts_creator.py
+This script generates a csv file counts matrix, containing the gene names as columns and each counts file as a row. 
