@@ -25,3 +25,7 @@ identification
 ILSolanum
 R-analysis
 written_files_restructured
+norm_lyc_cpms_wo_na
+!generate_lyc_cpm.R
+!generate_pen_cpm.R
+!generate_norm_cpms_wo_na.R
