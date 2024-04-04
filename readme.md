@@ -2,6 +2,9 @@
 
 This readme file contains information about the scripts used in this project.
 
+## PART ONE
+The analysis carried out in this part is done primarily through python scrips executed on the terminal
+
 ### create_chrom_level_fasta.py
 
 The  project begins with the create_chrom_level_fasta.py file. It gets the needed reference genomes (lycopersicum and pennelli) and annotation files, creates the necessary directories, and uses SeqIO from the Bio library to read the reference genome files and write their records to a new folder in fasta format. Sequence records for the lycopersicum genome are written to the `Lyc` folder while sequence records for the pennelli genome are written to the `Pen` folder.
@@ -66,3 +69,21 @@ This script uses featureCounts to generate the counts for the filtered pennelli 
 
 ### filtered_counts_creator_pen.py
 This script generates a csv file counts matrix, containing the gene names as columns and each counts file as a row. 
+
+## PART TWO
+The analysis carried out in this part is done with R and R studio
+
+### R_introgression_analysis
+The R_introgression_analysis folder contains three folders. `generate_cpms`, `generate_norm_cpms_no_na` and `identify_introgressed_genes`
+
+### generate_cpms
+The generate_cpms folder contains file `generate_lyc_cpm.R` which takes the csv file produced by the script `filtered_counts_creator.py` which contains the counts of reads that mapped uniquely to the lycopersicum genome and generates a corresponding lycopersicum cpm object named `lyc_cpm` and also a `lyc_gene_IDs` object.
+Likewise, the folder also contains file `generate_pen_cpm.R` which takes the csv file produced by the script `filtered_counts_creator_pen.py` which contains the counts of reads that mapped uniquely to the pennelli genome and generates a corresponding pennelli cpm object named `pen_cpm` and also a `pen_geneIDs` object.
+
+### generate_norm_cpms_no_na
+This folder contains file `generate_norm_cpms_wo_na.R` which takes the lycopersicum cpm object and pennelli cpm object obtained from the corresponding `generate_lyc_cpm.R` and `generate_pen_cpm.R` and generates a normalized version of each object. The data is normalized with row means, but to avoid dividing by zero, row mean entries with values of zero are replaced with 1e-10. The file produces two new objects `norm_lyc_cpms_wo_na` and `norm_pen_cpms_wo_na`.
+
+### identify_introgressed_genes
+This is the main folder for this analysis. It contains file `introgressed_gene_matrix.R` file which uses the `norm_lyc_cpms_wo_na` object to identify which genes were introgressed from the pennelli genome.
+Likewise, the folder also contains file `identify_pen_genes_that_got_introgressed.R` which uses the `norm_pen_cpms_wo_na` object to identify pennelli genes that jumped into the lycopersicum genome.
+All the object required to run both R scripts are available in the R_objects folder. The outputs of both scripts are csv files with genes as rows and samples as columns, and cells with values of either 1 or 0 representing whether a gene is an introgressed gene or not.
