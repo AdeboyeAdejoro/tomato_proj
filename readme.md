@@ -87,3 +87,15 @@ This folder contains file `generate_norm_cpms_wo_na.R` which takes the lycopersi
 This is the main folder for this analysis. It contains file `introgressed_gene_matrix.R` file which uses the `norm_lyc_cpms_wo_na` object to identify which genes were introgressed from the pennelli genome.
 Likewise, the folder also contains file `identify_pen_genes_that_got_introgressed.R` which uses the `norm_pen_cpms_wo_na` object to identify pennelli genes that jumped into the lycopersicum genome.
 All the object required to run both R scripts are available in the R_objects folder. The outputs of both scripts are csv files with genes as rows and samples as columns, and cells with values of either 1 or 0 representing whether a gene is an introgressed gene or not.
+
+### R_validation_analysis
+This folder contains files `map_snp_to_nearest_gene.R`, which maps each snp to its closest gene, and `generate_validation_images.R` which generates validation images to compare introgressions as detected by RNA-seq vs introgressions as detected by SNP-marker data
+
+### ML_train_lyc and ### ML_train_pen
+These folders contain the  `utils.py` and `train.py` scripts that are used to build and train a convolutional neural network model on lycopersicum and pennellii genes respectively.
+
+### ML_cross_predictions
+This folder contains subfolders `apply_lyc_model_to_pen_genes` and `apply_pen_model_to_lyc_genes`, which apply the model trained on lycopersicum promoter-terminator sequences to pennellii genes and vice versa. 
+
+### motif_discovery_modisco
+This folder contains subfolders `lycopersicum` and `pennellii` which both contain the files `run_modisco.py` and `extract_motifs.py`. `run_modisco.py` is used to discover motifs the models use to make their predictions, and `extract_motifs.py` extracts those motifs.
